@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedicarePlus | Modern Healthcare Guidance</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <span class="icon">🩺</span> Medicare<span class="blue-text">Plus</span>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#about">About Plans</a></li>
+                    <li><a href="#checker">Eligibility Checker</a></li>
+                    <li><a href="#services">Our Benefits</a></li>
+                </ul>
+            </nav>
+            <button class="cta-btn header-btn" id="navCtaBtn">Check Savings</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="about">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1>Healthcare guidance designed for your future.</h1>
+                    <p>Navigating Medicare options shouldn't feel overwhelming. Find clear, transparent information on Parts A, B, C, and D, and check your enrollment window options instantly.</p>
+                    <button class="cta-btn" id="heroCtaBtn">Get Started Now</button>
+                </div>
+                <div class="hero-image-pane">
+                    <div class="abstract-shield">🛡️</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="checker-section" id="checker">
+            <div class="container-sm">
+                <h2>Quick Eligibility Estimator</h2>
+                <p class="subtitle">Fill out this brief form to determine if you meet initial criteria for various Medicare enrollment paths.</p>
+                
+                <div class="form-card">
+                    <form id="medicareForm">
+                        <div class="form-group">
+                            <label for="age">What is your current age?</label>
+                            <input type="number" id="age" required min="1" max="120" placeholder="e.g., 65">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="disability">Do you receive Social Security Disability benefits (SSDI)?</label>
+                            <select id="disability">
+                                <option value="no">No</option>
+                                <option value="yes">Yes, for 24+ months</option>
+                                <option value="recent">Yes, but less than 24 months</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="condition">Have you been diagnosed with ALS or End-Stage Renal Disease (ESRD)?</label>
+                            <select id="condition">
+                                <option value="no">No</option>
+                                <option value="yes">Yes</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="cta-btn submit-btn">Evaluate Coverage Pathway</button>
+                    </form>
+
+                    <div id="resultBox" class="result-box"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="services" id="services">
+            <div class="container">
+                <h2 class="section-title">Understanding the Core Medicare Components</h2>
+                <div class="services-grid">
+                    <div class="card">
+                        <div class="card-icon">🏥</div>
+                        <h3>Part A & B</h3>
+                        <p class="card-tag">Original Medicare</p>
+                        <p>Managed by the federal government. Part A covers inpatient hospital care, while Part B handles regular outpatient medical insurance and doctor visits.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">⚡</div>
+                        <h3>Part C</h3>
+                        <p class="card-tag">Medicare Advantage</p>
+                        <p>An all-in-one private alternative option. It bundles Parts A and B, usually includes Part D, and often provides added vision, hearing, and dental coverage.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">💊</div>
+                        <h3>Part D</h3>
+                        <p class="card-tag">Prescription Drugs</p>
+                        <p>Optional standalone plans run by private insurance companies approved by Medicare to help subsidize and lower your prescription medication expenses.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2026 MedicarePlus Portal. This platform functions exclusively as an educational simulation workspace.</p>
+        </div>
+    </footer>
+
+    <script src="./js/main.js"></script>
+</body>
+</html>
