@@ -3,111 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MedicarePlus | Modern Healthcare Guidance</title>
+    <title>MediCare | Modern Healthcare Services</title>
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
     <header>
-        <div class="nav-container">
+        <div class="navbar container">
             <div class="logo">
-                <span class="icon">🩺</span> Medicare<span class="blue-text">Plus</span>
+                <i class="fa-solid fa-heart-pulse"></i> <span>MediCare</span>
             </div>
             <nav>
                 <ul class="nav-links">
-                    <li><a href="#about">About Plans</a></li>
-                    <li><a href="#checker">Eligibility Checker</a></li>
-                    <li><a href="#services">Our Benefits</a></li>
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="./doctors.html">Doctor Page</a></li>
                 </ul>
             </nav>
-            <button class="cta-btn header-btn" id="navCtaBtn">Check Savings</button>
+            <button class="btn btn-primary open-modal-btn">Book Appointment</button>
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fa-solid fa-bars"></i>
+            </div>
         </div>
     </header>
 
-    <main>
-        <section class="hero" id="about">
-            <div class="hero-container">
-                <div class="hero-content">
-                    <h1>Healthcare guidance designed for your future.</h1>
-                    <p>Navigating Medicare options shouldn't feel overwhelming. Find clear, transparent information on Parts A, B, C, and D, and check your enrollment window options instantly.</p>
-                    <button class="cta-btn" id="heroCtaBtn">Get Started Now</button>
-                </div>
-                <div class="hero-image-pane">
-                    <div class="abstract-shield">🛡️</div>
+    <section id="home" class="hero">
+        <div class="container hero-grid">
+            <div class="hero-text">
+                <h1>Your Health Is Our <span class="highlight">Top Priority</span></h1>
+                <p>Access world-class medical expertise, state-of-the-art facilities, and compassionate care tailored right to your family's needs.</p>
+                <div class="hero-btns">
+                    <button class="btn btn-primary open-modal-btn">Get Started</button>
+                    <a href="#services" class="btn btn-secondary">Our Services</a>
                 </div>
             </div>
-        </section>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=600&q=80" alt="Doctor providing care">
+            </div>
+        </div>
+    </section>
 
-        <section class="checker-section" id="checker">
-            <div class="container-sm">
-                <h2>Quick Eligibility Estimator</h2>
-                <p class="subtitle">Fill out this brief form to determine if you meet initial criteria for various Medicare enrollment paths.</p>
-                
-                <div class="form-card">
-                    <form id="medicareForm">
-                        <div class="form-group">
-                            <label for="age">What is your current age?</label>
-                            <input type="number" id="age" required min="1" max="120" placeholder="e.g., 65">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="disability">Do you receive Social Security Disability benefits (SSDI)?</label>
-                            <select id="disability">
-                                <option value="no">No</option>
-                                <option value="yes">Yes, for 24+ months</option>
-                                <option value="recent">Yes, but less than 24 months</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="condition">Have you been diagnosed with ALS or End-Stage Renal Disease (ESRD)?</label>
-                            <select id="condition">
-                                <option value="no">No</option>
-                                <option value="yes">Yes</option>
-                            </select>
-                        </div>
-
-                        <button type="submit" class="cta-btn submit-btn">Evaluate Coverage Pathway</button>
-                    </form>
-
-                    <div id="resultBox" class="result-box"></div>
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Medical Services</h2>
+                <p>We provide comprehensive medical care across various specialties.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="icon-box"><i class="fa-solid fa-user-doctor"></i></div>
+                    <h3>General Checkup</h3>
+                    <p>Routine health screenings, preventative care, and wellness advice tailored for you.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon-box"><i class="fa-solid fa-heart-pulse"></i></div>
+                    <h3>Cardiology</h3>
+                    <p>Advanced heart care monitoring, diagnostics, and customized treatment plans.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon-box"><i class="fa-solid fa-tooth"></i></div>
+                    <h3>Dental Care</h3>
+                    <p>Comprehensive oral healthcare ranging from routine cleaning to advanced surgery.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="services" id="services">
-            <div class="container">
-                <h2 class="section-title">Understanding the Core Medicare Components</h2>
-                <div class="services-grid">
-                    <div class="card">
-                        <div class="card-icon">🏥</div>
-                        <h3>Part A & B</h3>
-                        <p class="card-tag">Original Medicare</p>
-                        <p>Managed by the federal government. Part A covers inpatient hospital care, while Part B handles regular outpatient medical insurance and doctor visits.</p>
-                    </div>
-                    <div class="card">
-                        <div class="card-icon">⚡</div>
-                        <h3>Part C</h3>
-                        <p class="card-tag">Medicare Advantage</p>
-                        <p>An all-in-one private alternative option. It bundles Parts A and B, usually includes Part D, and often provides added vision, hearing, and dental coverage.</p>
-                    </div>
-                    <div class="card">
-                        <div class="card-icon">💊</div>
-                        <h3>Part D</h3>
-                        <p class="card-tag">Prescription Drugs</p>
-                        <p>Optional standalone plans run by private insurance companies approved by Medicare to help subsidize and lower your prescription medication expenses.</p>
-                    </div>
-                </div>
+    <div class="modal-overlay" id="appointment-modal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Book an Appointment</h3>
+                <button class="close-modal-btn">&times;</button>
             </div>
-        </section>
-    </main>
+            <form id="appointment-form" class="modal-form">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" required placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" required placeholder="john@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="department">Select Department</label>
+                    <select id="department" required>
+                        <option value="">-- Choose a Department --</option>
+                        <option value="general">General Checkup</option>
+                        <option value="cardiology">Cardiology</option>
+                        <option value="dental">Dental Care</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="date">Preferred Date</label>
+                    <input type="date" id="date" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Confirm Booking</button>
+            </form>
+        </div>
+    </div>
 
     <footer>
-        <div class="footer-container">
-            <p>&copy; 2026 MedicarePlus Portal. This platform functions exclusively as an educational simulation workspace.</p>
+        <div class="container footer-content">
+            <p>&copy; 2026 MediCare. All rights reserved. Built for reliable healthcare.</p>
         </div>
     </footer>
 
     <script src="./js/main.js"></script>
 </body>
 </html>
+
+
+
+
+

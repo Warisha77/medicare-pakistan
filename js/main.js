@@ -1,48 +1,69 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // --- UI Elements ---
+    const modalOverlay = document.getElementById('appointment-modal');
+    const openModalBtns = document.querySelectorAll('.open-modal-btn');
+    const closeModalBtn = document.querySelector('.close-modal-btn');
+    const appointmentForm = document.getElementById('appointment-form');
     
-    // Smooth scrolling bindings
-    const navCta = document.getElementById('navCtaBtn');
-    const heroCta = document.getElementById('heroCtaBtn');
-    const targetSection = document.getElementById('checker');
-
-    const scrollToForm = () => {
-        targetSection.scrollIntoView({ behavior: 'smooth' });
+    // --- Modal Logic ---
+    const openModal = () => {
+        modalOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Stop background scrolling
     };
 
-    if(navCta) navCta.addEventListener('click', scrollToForm);
-    if(heroCta) heroCta.addEventListener('click', scrollToForm);
+    const closeModal = () => {
+        modalOverlay.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    };
 
-    // Dynamic Form Submission Handling
-    const form = document.getElementById('medicareForm');
-    const resultBox = document.getElementById('resultBox');
+    openModalBtns.forEach(btn => btn.addEventListener('click', openModal));
+    closeModalBtn.addEventListener('click', closeModal);
 
-    if (form) {
-        form.addEventListener('submit', (event) => {
-            event.preventDefault();
+    // Close modal when clicking outside the container box
+    modalOverlay.addEventListener('click', (e) => {
+        if (e.target === modalOverlay) {
+            closeModal();
+        }
+    });
 
-            // Extract values
-            const ageInput = parseInt(document.getElementById('age').value, 10);
-            const disabilityStatus = document.getElementById('disability').value;
-            const healthCondition = document.getElementById('condition').value;
+    // --- Form Handling ---
+    appointmentForm.addEventListener('submit', (e) => {
+        e.preventDefault();
 
-            // Reset box classes
-            resultBox.className = 'result-box';
-            resultBox.style.display = 'block';
+        // Get value data
+        const name = document.getElementById('name').value;
+        const department = document.getElementById('department').value;
+        const date = document.getElementById('date').value;
 
-            // Algorithmic evaluation processing
-            if (ageInput >= 65) {
-                resultBox.classList.add('result-success');
-                resultBox.innerHTML = `<strong>🎉 Eligible by Age Target:</strong> You meet standard age requirements (65+) for national Medicare enrollment options. Your standard initial coverage roadmap window opens 3 months prior to your target birth month.`;
-            } else if (healthCondition === 'yes') {
-                resultBox.classList.add('result-success');
-                resultBox.innerHTML = `<strong>📋 Special Condition Route Match:</strong> Individuals with verified diagnoses of ALS or End-Stage Renal Disease (ESRD) typically qualify for accelerated or immediate configurations beneath age 65.`;
-            } else if (disabilityStatus === 'yes') {
-                resultBox.classList.add('result-success');
-                resultBox.innerHTML = `<strong>⏳ Disability Window Standard:</strong> Having collected Social Security Disability Insurance (SSDI) parameters for over 24 continuous months validates coverage assignment entry by month 25.`;
-            } else {
-                resultBox.classList.add('result-notice');
-                resultBox.innerHTML = `<strong>🔍 Alternative Pathway Required:</strong> Parameters do not signal a standard initial profile. General pathways stipulate cross-boundary matches including 65+ age benchmarks or 24-month duration parameters on SSDI cycles.`;
+        // Custom validation/Notification feedback 
+        alert(`Thank you, ${name}! Your appointment for the ${department} department has been tentatively booked for ${date}. We will send a confirmation email shortly.`);
+        
+        // Reset and clear view
+        appointmentForm.reset();
+        closeModal();
+    });
+
+    // --- Basic Smooth Scroll Tracker ---
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            if (pageYOffset >= sectionTop - 150) {
+                current = section.getAttribute('id');
             }
         });
-    }
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href').includes(current)) {
+                link.classList.add('active');
+            }
+        });
+    });
 });
+
+
+
